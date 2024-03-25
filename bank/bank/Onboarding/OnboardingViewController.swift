@@ -7,11 +7,6 @@
 
 import UIKit
 
-@objc protocol OnboardingViewControllerDelegate {
-    func closeButtonTapped()
-    func nextButtonTapped()
-}
-
 class OnboardingViewController: UIViewController {
     private let stackView = UIStackView()
     private let imageView = UIImageView()
@@ -20,11 +15,6 @@ class OnboardingViewController: UIViewController {
     private let imageName: String
     private let labelText: String
     
-    private let closeButton = UIButton()
-    private let nextButton = UIButton()
-    
-    var delegate: OnboardingViewControllerDelegate?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,7 +22,7 @@ class OnboardingViewController: UIViewController {
         layout()
     }
     
-    init(imageName: String, labelText: String, delegate: OnboardingViewControllerDelegate? = nil) {
+    init(imageName: String, labelText: String) {
         self.imageName = imageName
         self.labelText = labelText
         
@@ -60,14 +50,6 @@ class OnboardingViewController: UIViewController {
         descriptionLabel.adjustsFontForContentSizeCategory = true
         descriptionLabel.numberOfLines = 0
         descriptionLabel.text = labelText
-        
-        closeButton.translatesAutoresizingMaskIntoConstraints = false
-        closeButton.setTitle("Close", for: .normal)
-        closeButton.addTarget(self, action: #selector(delegate?.closeButtonTapped), for: .touchUpInside)
-        
-        nextButton.translatesAutoresizingMaskIntoConstraints = false
-        nextButton.setTitle("Next", for: .normal)
-        nextButton.addTarget(self, action: #selector(delegate?.nextButtonTapped), for: .touchUpInside)
     }
     
     private func layout() {        
@@ -80,15 +62,7 @@ class OnboardingViewController: UIViewController {
             stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             stackView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),
-            view.trailingAnchor.constraint(equalToSystemSpacingAfter: stackView.trailingAnchor, multiplier: 1)
-//
-//            closeButton.topAnchor.constraint(equalToSystemSpacingBelow: view.topAnchor, multiplier: 1),
-//            closeButton.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),
-//            
-//            view.bottomAnchor.constraint(equalToSystemSpacingBelow: nextButton.bottomAnchor, multiplier: 1),
-//            view.trailingAnchor.constraint(equalToSystemSpacingAfter: nextButton.trailingAnchor, multiplier: 1)
+            view.trailingAnchor.constraint(equalToSystemSpacingAfter: stackView.trailingAnchor, multiplier: 1),          
         ])
-        
-        
     }
 }

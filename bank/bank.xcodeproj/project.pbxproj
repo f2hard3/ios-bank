@@ -16,6 +16,7 @@
 		CA0A81BD2BAE2A7500B31139 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0A81BC2BAE2A7500B31139 /* LoginView.swift */; };
 		CA0A81C02BB0C86000B31139 /* OnboardingContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0A81BF2BB0C86000B31139 /* OnboardingContainerController.swift */; };
 		CA0A81C22BB0E26000B31139 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0A81C12BB0E26000B31139 /* OnboardingViewController.swift */; };
+		CA0A81C52BB1425400B31139 /* LocalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0A81C42BB1425400B31139 /* LocalState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		CA0A81BC2BAE2A7500B31139 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		CA0A81BF2BB0C86000B31139 /* OnboardingContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerController.swift; sourceTree = "<group>"; };
 		CA0A81C12BB0E26000B31139 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		CA0A81C42BB1425400B31139 /* LocalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		CA0A81A62BAE278100B31139 /* bank */ = {
 			isa = PBXGroup;
 			children = (
+				CA0A81C32BB1424000B31139 /* Utils */,
 				CA0A81BE2BB0C83800B31139 /* Onboarding */,
 				CA0A81BB2BAE2A1000B31139 /* Login */,
 				CA0A81A72BAE278100B31139 /* AppDelegate.swift */,
@@ -90,6 +93,14 @@
 				CA0A81C12BB0E26000B31139 /* OnboardingViewController.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		CA0A81C32BB1424000B31139 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CA0A81C42BB1425400B31139 /* LocalState.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA0A81AC2BAE278100B31139 /* LoginViewController.swift in Sources */,
+				CA0A81C52BB1425400B31139 /* LocalState.swift in Sources */,
 				CA0A81C22BB0E26000B31139 /* OnboardingViewController.swift in Sources */,
 				CA0A81C02BB0C86000B31139 /* OnboardingContainerController.swift in Sources */,
 				CA0A81A82BAE278100B31139 /* AppDelegate.swift in Sources */,

@@ -7,12 +7,17 @@
 
 import UIKit
 
+protocol LoginViewControllerDelegate: AnyObject {
+    
+}
+
 class LoginViewController: UIViewController {
     let titleLabel = UILabel()
     let descriptionLabel = UILabel()
     let loginView = LoginView()
     let signInButton = UIButton(type: .system)
     let errorMessageLabel = UILabel()
+    let defaults = UserDefaults.standard
     
     var userName: String? {
         loginView.usernameTextField.text
@@ -27,6 +32,10 @@ class LoginViewController: UIViewController {
         
         style()
         layout()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        signInButton.configuration?.showsActivityIndicator = false
     }
 }
 
@@ -99,7 +108,7 @@ extension LoginViewController {
     }
 }
 
-// MARK: - Action
+// MARK: - Actions
 extension LoginViewController {
     @objc private func signInTapped(sender: UIButton) {
         errorMessageLabel.isHidden = true
@@ -123,8 +132,7 @@ extension LoginViewController {
         
         if userName == "Kevin" && password == "Welcome" {
             signInButton.configuration?.showsActivityIndicator = true
-            let onboardingContainerController = OnboardingContainerController()
-            present(onboardingContainerController, animated: true)
+            didLogin()
         } else {
             configureView(withMessage: "Incorrect username / password")
         }
@@ -133,5 +141,19 @@ extension LoginViewController {
     private func configureView(withMessage message: String) {
         errorMessageLabel.text = message
         errorMessageLabel.isHidden = false
+    }
+    
+    private func didLogin() {
+        if LocalState.hasOnboarded {
+            print("go to another page")
+        } else {
+            let onboardingContainerController = OnboardingContainerController()
+            onboardingContainerController.modalPresentationStyle = .fullScreen
+            onboardingContainerController.willFinishingOnboarding = {
+                LocalState.hasOnboarded = true
+            }
+            
+            present(onboardingContainerController, animated: true)
+        }
     }
 }
