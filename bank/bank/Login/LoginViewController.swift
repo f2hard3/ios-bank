@@ -104,6 +104,9 @@ extension LoginViewController {
     @objc private func signInTapped(sender: UIButton) {
         errorMessageLabel.isHidden = true
         
+        loginView.usernameTextField.text = "Kevin"
+        loginView.passwordTextField.text = "Welcome"
+        
         login()
     }
     
@@ -120,6 +123,8 @@ extension LoginViewController {
         
         if userName == "Kevin" && password == "Welcome" {
             signInButton.configuration?.showsActivityIndicator = true
+            let onboardingContainerController = OnboardingContainerController()
+            present(onboardingContainerController, animated: true)
         } else {
             configureView(withMessage: "Incorrect username / password")
         }
