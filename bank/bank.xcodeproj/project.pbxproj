@@ -17,6 +17,12 @@
 		CA0A81C02BB0C86000B31139 /* OnboardingContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0A81BF2BB0C86000B31139 /* OnboardingContainerController.swift */; };
 		CA0A81C22BB0E26000B31139 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0A81C12BB0E26000B31139 /* OnboardingViewController.swift */; };
 		CA0A81C52BB1425400B31139 /* LocalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0A81C42BB1425400B31139 /* LocalState.swift */; };
+		CA0A81C82BB158D900B31139 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0A81C72BB158D900B31139 /* MainViewController.swift */; };
+		CA0A81CB2BB1597200B31139 /* AccountSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0A81CA2BB1597200B31139 /* AccountSummaryViewController.swift */; };
+		CA0A81CF2BB159CC00B31139 /* MoveMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0A81CE2BB159CC00B31139 /* MoveMoneyViewController.swift */; };
+		CA0A81D12BB159E600B31139 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0A81D02BB159E600B31139 /* MoreViewController.swift */; };
+		CA0A81D32BB15CC400B31139 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0A81D22BB15CC400B31139 /* CustomColors.swift */; };
+		CA0A81D52BB15E6600B31139 /* UIViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0A81D42BB15E6600B31139 /* UIViewControllerUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +38,12 @@
 		CA0A81BF2BB0C86000B31139 /* OnboardingContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerController.swift; sourceTree = "<group>"; };
 		CA0A81C12BB0E26000B31139 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		CA0A81C42BB1425400B31139 /* LocalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalState.swift; sourceTree = "<group>"; };
+		CA0A81C72BB158D900B31139 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		CA0A81CA2BB1597200B31139 /* AccountSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryViewController.swift; sourceTree = "<group>"; };
+		CA0A81CE2BB159CC00B31139 /* MoveMoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveMoneyViewController.swift; sourceTree = "<group>"; };
+		CA0A81D02BB159E600B31139 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
+		CA0A81D22BB15CC400B31139 /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
+		CA0A81D42BB15E6600B31139 /* UIViewControllerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,14 +76,14 @@
 		CA0A81A62BAE278100B31139 /* bank */ = {
 			isa = PBXGroup;
 			children = (
-				CA0A81C32BB1424000B31139 /* Utils */,
-				CA0A81BE2BB0C83800B31139 /* Onboarding */,
 				CA0A81BB2BAE2A1000B31139 /* Login */,
-				CA0A81A72BAE278100B31139 /* AppDelegate.swift */,
-				CA0A81A92BAE278100B31139 /* SceneDelegate.swift */,
-				CA0A81B02BAE278200B31139 /* Assets.xcassets */,
-				CA0A81AD2BAE278100B31139 /* Main.storyboard */,
-				CA0A81B22BAE278200B31139 /* LaunchScreen.storyboard */,
+				CA0A81BE2BB0C83800B31139 /* Onboarding */,
+				CA0A81C92BB1595100B31139 /* AccountSummary */,
+				CA0A81CC2BB1599100B31139 /* MoveMoney */,
+				CA0A81CD2BB159AF00B31139 /* More */,
+				CA0A81C32BB1424000B31139 /* Utils */,
+				CA0A81C62BB1579D00B31139 /* Files */,
+				CA0A81C72BB158D900B31139 /* MainViewController.swift */,
 				CA0A81B52BAE278200B31139 /* Info.plist */,
 			);
 			path = bank;
@@ -99,8 +111,46 @@
 			isa = PBXGroup;
 			children = (
 				CA0A81C42BB1425400B31139 /* LocalState.swift */,
+				CA0A81D22BB15CC400B31139 /* CustomColors.swift */,
+				CA0A81D42BB15E6600B31139 /* UIViewControllerUtils.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		CA0A81C62BB1579D00B31139 /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				CA0A81A72BAE278100B31139 /* AppDelegate.swift */,
+				CA0A81A92BAE278100B31139 /* SceneDelegate.swift */,
+				CA0A81AD2BAE278100B31139 /* Main.storyboard */,
+				CA0A81B22BAE278200B31139 /* LaunchScreen.storyboard */,
+				CA0A81B02BAE278200B31139 /* Assets.xcassets */,
+			);
+			path = Files;
+			sourceTree = "<group>";
+		};
+		CA0A81C92BB1595100B31139 /* AccountSummary */ = {
+			isa = PBXGroup;
+			children = (
+				CA0A81CA2BB1597200B31139 /* AccountSummaryViewController.swift */,
+			);
+			path = AccountSummary;
+			sourceTree = "<group>";
+		};
+		CA0A81CC2BB1599100B31139 /* MoveMoney */ = {
+			isa = PBXGroup;
+			children = (
+				CA0A81CE2BB159CC00B31139 /* MoveMoneyViewController.swift */,
+			);
+			path = MoveMoney;
+			sourceTree = "<group>";
+		};
+		CA0A81CD2BB159AF00B31139 /* More */ = {
+			isa = PBXGroup;
+			children = (
+				CA0A81D02BB159E600B31139 /* MoreViewController.swift */,
+			);
+			path = More;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,9 +228,15 @@
 				CA0A81C52BB1425400B31139 /* LocalState.swift in Sources */,
 				CA0A81C22BB0E26000B31139 /* OnboardingViewController.swift in Sources */,
 				CA0A81C02BB0C86000B31139 /* OnboardingContainerController.swift in Sources */,
+				CA0A81D12BB159E600B31139 /* MoreViewController.swift in Sources */,
 				CA0A81A82BAE278100B31139 /* AppDelegate.swift in Sources */,
+				CA0A81CF2BB159CC00B31139 /* MoveMoneyViewController.swift in Sources */,
+				CA0A81D52BB15E6600B31139 /* UIViewControllerUtils.swift in Sources */,
 				CA0A81BD2BAE2A7500B31139 /* LoginView.swift in Sources */,
 				CA0A81AA2BAE278100B31139 /* SceneDelegate.swift in Sources */,
+				CA0A81C82BB158D900B31139 /* MainViewController.swift in Sources */,
+				CA0A81D32BB15CC400B31139 /* CustomColors.swift in Sources */,
+				CA0A81CB2BB1597200B31139 /* AccountSummaryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

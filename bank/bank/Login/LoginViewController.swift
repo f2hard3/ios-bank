@@ -145,7 +145,9 @@ extension LoginViewController {
     
     private func didLogin() {
         if LocalState.hasOnboarded {
-            print("go to another page")
+            let mainViewController = MainViewController()
+            mainViewController.modalPresentationStyle = .fullScreen
+            present(mainViewController, animated: false)
         } else {
             let onboardingContainerController = OnboardingContainerController()
             onboardingContainerController.modalPresentationStyle = .fullScreen
