@@ -8,6 +8,7 @@
 import UIKit
 
 class AccountSummaryViewController: UIViewController {
+<<<<<<< HEAD
     private let tableView = UITableView()
     
     private var accounts = [AccountModel]()
@@ -104,3 +105,9 @@ extension AccountSummaryViewController {
     }
 }
 
+=======
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+}
+>>>>>>> main
