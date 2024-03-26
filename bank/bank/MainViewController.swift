@@ -14,10 +14,7 @@ class MainViewController: UITabBarController {
 
         setupViews()
         setupTabBar()
-<<<<<<< HEAD
         setupStatusBar()
-=======
->>>>>>> main
     }
     
     private func setupViews() {
