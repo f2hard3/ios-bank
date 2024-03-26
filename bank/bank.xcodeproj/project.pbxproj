@@ -30,6 +30,7 @@
 		CA0A81E12BB2950100B31139 /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0A81E02BB2950100B31139 /* AccountModel.swift */; };
 		CA0A81E32BB29D6F00B31139 /* DecimalUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0A81E22BB29D6F00B31139 /* DecimalUtils.swift */; };
 		CA1E63652BB2D88900EDB66E /* CurrencyFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1E63642BB2D88900EDB66E /* CurrencyFormatterTests.swift */; };
+		CA1E63672BB2E04500EDB66E /* CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1E63662BB2E04500EDB66E /* CurrencyFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		CA0A81E22BB29D6F00B31139 /* DecimalUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalUtils.swift; sourceTree = "<group>"; };
 		CA1E635B2BB2D61A00EDB66E /* bankUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bankUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA1E63642BB2D88900EDB66E /* CurrencyFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatterTests.swift; sourceTree = "<group>"; };
+		CA1E63662BB2E04500EDB66E /* CurrencyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 				CA0A81D22BB15CC400B31139 /* CustomColors.swift */,
 				CA0A81D42BB15E6600B31139 /* UIViewControllerUtils.swift */,
 				CA0A81E22BB29D6F00B31139 /* DecimalUtils.swift */,
+				CA1E63662BB2E04500EDB66E /* CurrencyFormatter.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				CA0A81C02BB0C86000B31139 /* OnboardingContainerController.swift in Sources */,
 				CA0A81D12BB159E600B31139 /* MoreViewController.swift in Sources */,
 				CA0A81A82BAE278100B31139 /* AppDelegate.swift in Sources */,
+				CA1E63672BB2E04500EDB66E /* CurrencyFormatter.swift in Sources */,
 				CA0A81DD2BB24A7200B31139 /* AccountSummaryCell.swift in Sources */,
 				CA0A81CF2BB159CC00B31139 /* MoveMoneyViewController.swift in Sources */,
 				CA0A81D52BB15E6600B31139 /* UIViewControllerUtils.swift in Sources */,
