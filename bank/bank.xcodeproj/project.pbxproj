@@ -27,6 +27,7 @@
 		CA0A81D92BB229B400B31139 /* AccountSummaryHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA0A81D82BB229B400B31139 /* AccountSummaryHeaderView.xib */; };
 		CA0A81DD2BB24A7200B31139 /* AccountSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0A81DC2BB24A7200B31139 /* AccountSummaryCell.swift */; };
 		CA0A81DF2BB24BCF00B31139 /* AccountSummaryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA0A81DE2BB24BCF00B31139 /* AccountSummaryCell.xib */; };
+		CA0A81E12BB2950100B31139 /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0A81E02BB2950100B31139 /* AccountModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		CA0A81D82BB229B400B31139 /* AccountSummaryHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountSummaryHeaderView.xib; sourceTree = "<group>"; };
 		CA0A81DC2BB24A7200B31139 /* AccountSummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryCell.swift; sourceTree = "<group>"; };
 		CA0A81DE2BB24BCF00B31139 /* AccountSummaryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountSummaryCell.xib; sourceTree = "<group>"; };
+		CA0A81E02BB2950100B31139 /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 			children = (
 				CA0A81DC2BB24A7200B31139 /* AccountSummaryCell.swift */,
 				CA0A81DE2BB24BCF00B31139 /* AccountSummaryCell.xib */,
+				CA0A81E02BB2950100B31139 /* AccountModel.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				CA0A81D52BB15E6600B31139 /* UIViewControllerUtils.swift in Sources */,
 				CA0A81BD2BAE2A7500B31139 /* LoginView.swift in Sources */,
 				CA0A81AA2BAE278100B31139 /* SceneDelegate.swift in Sources */,
+				CA0A81E12BB2950100B31139 /* AccountModel.swift in Sources */,
 				CA0A81D72BB2297B00B31139 /* AccountSummaryHeaderView.swift in Sources */,
 				CA0A81C82BB158D900B31139 /* MainViewController.swift in Sources */,
 				CA0A81D32BB15CC400B31139 /* CustomColors.swift in Sources */,

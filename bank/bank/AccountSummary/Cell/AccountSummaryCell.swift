@@ -9,12 +9,11 @@ import UIKit
 
 class AccountSummaryCell: UITableViewCell {
     @IBOutlet weak var accountTypeLabel: UILabel!
+    @IBOutlet weak var underlineView: UIView!
     @IBOutlet weak var accountNameLabel: UILabel!
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet weak var balanceAmountLabel: UILabel!
-    
-     
-    
+         
     static let identifier = "AccountSummaryCell"
     static let height: CGFloat = 112
     
@@ -35,12 +34,29 @@ class AccountSummaryCell: UITableViewCell {
         let centAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.preferredFont(forTextStyle: .footnote), .baselineOffset: 8]
         
         let rootString = NSMutableAttributedString(string: "$", attributes: dollarSignAttribute)
-        let dollarString = NSMutableAttributedString(string: dollars, attributes: dollarAttributes)
-        let centString = NSMutableAttributedString(string: cents, attributes: centAttributes)
+        let dollarString = NSAttributedString(string: dollars, attributes: dollarAttributes)
+        let centString = NSAttributedString(string: cents, attributes: centAttributes)
         rootString.append(dollarString)
         rootString.append(centString)
         
         return rootString
     }
     
+    func configure(with accountModel: AccountModel) {
+        accountTypeLabel.text = accountModel.accountType.rawValue
+        accountNameLabel.text = accountModel.accountName
+//        balanceAmountLabel.attributedText = makeFormattedBalance(dollars: <#T##String#>, cents: <#T##String#>)
+        
+        switch accountModel.accountType {
+        case .Banking:
+            underlineView.backgroundColor = CustomColors.appColor
+            balanceLabel.text = "Currenct balance"
+        case .CreditCard:
+            underlineView.backgroundColor = .systemOrange
+            balanceLabel.text = "Balance"
+        case .Investment:
+            underlineView.backgroundColor = .systemPurple
+            balanceLabel.text = "Value"
+        }
+    }
 }

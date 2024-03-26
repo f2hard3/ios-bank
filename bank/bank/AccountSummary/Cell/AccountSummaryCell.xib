@@ -77,6 +77,7 @@
                 <outlet property="accountTypeLabel" destination="uiC-3q-MLR" id="EU2-WD-ZPw"/>
                 <outlet property="balanceAmountLabel" destination="jsN-V5-UbD" id="Rbj-bH-nGF"/>
                 <outlet property="balanceLabel" destination="uC4-46-MeN" id="XOF-R8-cv6"/>
+                <outlet property="underlineView" destination="dvB-wP-zdP" id="QOj-lW-0uc"/>
             </connections>
             <point key="canvasLocation" x="-405.34351145038164" y="-481.69014084507046"/>
         </tableViewCell>
