@@ -85,3 +85,14 @@ struct CurrencyFormatter {
         return rootString
     }
 }
+
+// MARK: - Test Helper Methods
+extension CurrencyFormatter {
+    func breakIntoDollarsAndCentsHelper(_ amount: Decimal) -> (String, String) {
+        return breakIntoDollarsAndCents(amount)
+    }
+    
+    func dollarsFormattedHelper(_ dollars: Double) -> String {
+        return dollarsFormatted(dollars)
+    }
+}
