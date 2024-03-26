@@ -27,11 +27,22 @@ class LoginViewController: UIViewController {
         loginView.passwordTextField.text
     }
     
+    // animation
+    var titleLeadingAnchor: NSLayoutConstraint?
+    var descriptionLeadingAnchor: NSLayoutConstraint?
+    let leadingEdgeOnScreen: CGFloat = 16
+    let leadingEdgeOffScreen: CGFloat = -1000
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         style()
         layout()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        animate()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -47,6 +58,7 @@ extension LoginViewController {
         titleLabel.font = UIFont.preferredFont(forTextStyle: .largeTitle)
         titleLabel.adjustsFontForContentSizeCategory = true
         titleLabel.text = "Bank"
+        titleLabel.alpha = 0 // for animation
         
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.textAlignment = .center
@@ -54,6 +66,7 @@ extension LoginViewController {
         descriptionLabel.adjustsFontForContentSizeCategory = true
         descriptionLabel.numberOfLines = 0
         descriptionLabel.text = "Your premium source for all banking services"
+        descriptionLabel.alpha = 0 // for animation
         
         loginView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -79,14 +92,17 @@ extension LoginViewController {
         
         NSLayoutConstraint.activate([
             descriptionLabel.topAnchor.constraint(equalToSystemSpacingBelow: titleLabel.bottomAnchor, multiplier: 3),
-            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            titleLabel.trailingAnchor.constraint(equalTo: loginView.trailingAnchor)
         ])
+        titleLeadingAnchor = titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leadingEdgeOffScreen)
+        titleLeadingAnchor?.isActive = true
         
         NSLayoutConstraint.activate([
             loginView.topAnchor.constraint(equalToSystemSpacingBelow: descriptionLabel.bottomAnchor, multiplier: 3),
-            descriptionLabel.leadingAnchor.constraint(equalTo: loginView.leadingAnchor),
             descriptionLabel.trailingAnchor.constraint(equalTo: loginView.trailingAnchor)
         ])
+        descriptionLeadingAnchor = descriptionLabel.leadingAnchor.constraint(equalTo: loginView.leadingAnchor, constant: leadingEdgeOffScreen)
+        descriptionLeadingAnchor?.isActive = true
         
         NSLayoutConstraint.activate([
             loginView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
@@ -151,9 +167,49 @@ extension LoginViewController {
             present(mainViewController, animated: false)
         } else {
             let onboardingContainerController = OnboardingContainerController()
+            onboardingContainerController.delegate = self
             onboardingContainerController.modalPresentationStyle = .fullScreen
             
             present(onboardingContainerController, animated: true)
         }
+    }
+}
+
+// MARK: - OnboardingContainerControllerDelegate
+extension LoginViewController: OnboardingContainerControllerDelegate {
+    func didFinishOnboarding() {
+        LocalState.hasOnboarded = true
+        
+        let mainViewController = MainViewController()
+        mainViewController.modalPresentationStyle = .fullScreen
+        
+        self.present(mainViewController, animated: false)
+    }
+}
+
+// MARK: - Animation {
+extension LoginViewController {
+    private func animate() {
+        let duration: TimeInterval = 1
+        
+        let titleAnchorAnimator = UIViewPropertyAnimator(duration: duration, curve: .easeInOut) {
+            self.titleLeadingAnchor?.constant = self.leadingEdgeOnScreen
+            
+            self.view.layoutIfNeeded()
+        }
+        titleAnchorAnimator.startAnimation()
+        
+        let descriptionAnimator = UIViewPropertyAnimator(duration: duration, curve: .easeInOut) {
+            self.descriptionLeadingAnchor?.constant = self.leadingEdgeOnScreen
+            self.view.layoutIfNeeded()
+        }
+        descriptionAnimator.startAnimation(afterDelay: 0.25)
+        
+        let textAnimator = UIViewPropertyAnimator(duration: duration * 2, curve: .easeInOut) {
+            self.titleLabel.alpha = 1
+            self.descriptionLabel.alpha = 1
+            self.view.layoutIfNeeded()
+        }
+        textAnimator.startAnimation(afterDelay: 0.25)
     }
 }

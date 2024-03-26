@@ -15,6 +15,8 @@ class MainViewController: UITabBarController {
         setupViews()
         setupTabBar()
         setupStatusBar()
+        
+        registerForNotification()
     }
     
     private func setupViews() {
@@ -40,5 +42,16 @@ class MainViewController: UITabBarController {
     private func setupTabBar() {
         tabBar.tintColor = CustomColors.appColor
         tabBar.isTranslucent = false
+    }
+    
+    private func registerForNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(didLogout), name: .logout, object: nil)
+    }
+}
+
+// MARK: - Actions
+extension MainViewController {
+    @objc private func didLogout() {
+        dismiss(animated: true)
     }
 }

@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol OnboardingContainerControllerDelegate: AnyObject {
+    func didFinishOnboarding()
+}
+
 class OnboardingContainerController: UIViewController {
     private let pageViewController: UIPageViewController
     private var pages = [UIViewController]()
@@ -18,6 +22,8 @@ class OnboardingContainerController: UIViewController {
     private let closeButton = UIButton()
     private let backButton = UIButton()
     private let nextButton = UIButton()
+    
+    weak var delegate: OnboardingContainerControllerDelegate?
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
@@ -155,7 +161,8 @@ extension OnboardingContainerController {
         
         // Next button Becomes Done button and will finish the onboarding
         if currentIndex == 2 {
-            willFinishOnboarding()
+            dismiss(animated: false)
+            delegate?.didFinishOnboarding()
         }
         
         guard let nextVC = getNextViewController(from: currentVC) else { return }
@@ -178,13 +185,5 @@ extension OnboardingContainerController {
             backButton.isHidden = false
             nextButton.setTitle("Done", for: .normal)
         }
-    }
-    
-    private func willFinishOnboarding() {
-        LocalState.hasOnboarded = true
-        
-        let mainViewController = MainViewController()
-        mainViewController.modalPresentationStyle = .fullScreen
-        present(mainViewController, animated: false)
     }
 }
