@@ -20,7 +20,7 @@ class AccountSummaryCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        balanceAmountLabel.attributedText = makeFormattedBalance(dollars: "929,466", cents: "23")
+        balanceAmountLabel.attributedText = makeFormattedBalance(dollars: "XXX,XXX", cents: "XX")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -45,7 +45,7 @@ class AccountSummaryCell: UITableViewCell {
     func configure(with accountModel: AccountModel) {
         accountTypeLabel.text = accountModel.accountType.rawValue
         accountNameLabel.text = accountModel.accountName
-//        balanceAmountLabel.attributedText = makeFormattedBalance(dollars: <#T##String#>, cents: <#T##String#>)
+        balanceAmountLabel.attributedText = CurrencyFormatter().makeAttributedCurrency(accountModel.balance)
         
         switch accountModel.accountType {
         case .Banking:

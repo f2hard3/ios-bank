@@ -28,6 +28,7 @@
 		CA0A81DD2BB24A7200B31139 /* AccountSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0A81DC2BB24A7200B31139 /* AccountSummaryCell.swift */; };
 		CA0A81DF2BB24BCF00B31139 /* AccountSummaryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA0A81DE2BB24BCF00B31139 /* AccountSummaryCell.xib */; };
 		CA0A81E12BB2950100B31139 /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0A81E02BB2950100B31139 /* AccountModel.swift */; };
+		CA0A81E32BB29D6F00B31139 /* DecimalUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0A81E22BB29D6F00B31139 /* DecimalUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		CA0A81DC2BB24A7200B31139 /* AccountSummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryCell.swift; sourceTree = "<group>"; };
 		CA0A81DE2BB24BCF00B31139 /* AccountSummaryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountSummaryCell.xib; sourceTree = "<group>"; };
 		CA0A81E02BB2950100B31139 /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
+		CA0A81E22BB29D6F00B31139 /* DecimalUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				CA0A81C42BB1425400B31139 /* LocalState.swift */,
 				CA0A81D22BB15CC400B31139 /* CustomColors.swift */,
 				CA0A81D42BB15E6600B31139 /* UIViewControllerUtils.swift */,
+				CA0A81E22BB29D6F00B31139 /* DecimalUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA0A81E32BB29D6F00B31139 /* DecimalUtils.swift in Sources */,
 				CA0A81AC2BAE278100B31139 /* LoginViewController.swift in Sources */,
 				CA0A81C52BB1425400B31139 /* LocalState.swift in Sources */,
 				CA0A81C22BB0E26000B31139 /* OnboardingViewController.swift in Sources */,
