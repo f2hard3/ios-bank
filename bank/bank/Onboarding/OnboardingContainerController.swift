@@ -154,9 +154,11 @@ extension OnboardingContainerController {
     @objc private func nextButtonTapped() {
         guard let currentIndex = pages.firstIndex(of: currentVC) else { return }
         if currentIndex == 2 {
-            willFinishOnboarding?()
-            dismiss(animated: true)
-            return
+            LocalState.hasOnboarded = true
+            
+            let mainViewController = MainViewController()
+            mainViewController.modalPresentationStyle = .fullScreen
+            present(mainViewController, animated: false)            
         }
         
         guard let nextVC = getNextViewController(from: currentVC) else { return }
