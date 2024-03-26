@@ -18,7 +18,7 @@ class OnboardingContainerController: UIViewController {
     private let closeButton = UIButton()
     private let backButton = UIButton()
     private let nextButton = UIButton()
-    var willFinishingOnboarding: (() -> Void)?
+    var willFinishOnboarding: (() -> Void)?
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
@@ -154,7 +154,7 @@ extension OnboardingContainerController {
     @objc private func nextButtonTapped() {
         guard let currentIndex = pages.firstIndex(of: currentVC) else { return }
         if currentIndex == 2 {
-            willFinishingOnboarding?()
+            willFinishOnboarding?()
             dismiss(animated: true)
             return
         }
