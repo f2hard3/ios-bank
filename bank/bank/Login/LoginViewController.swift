@@ -147,11 +147,12 @@ extension LoginViewController {
         if LocalState.hasOnboarded {
             let mainViewController = MainViewController()
             mainViewController.modalPresentationStyle = .fullScreen
+            
             present(mainViewController, animated: false)
         } else {
             let onboardingContainerController = OnboardingContainerController()
             onboardingContainerController.modalPresentationStyle = .fullScreen
-            onboardingContainerController.willFinishingOnboarding = {
+            onboardingContainerController.willFinishOnboarding = {
                 LocalState.hasOnboarded = true
             }
             

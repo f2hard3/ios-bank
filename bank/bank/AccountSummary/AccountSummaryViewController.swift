@@ -27,7 +27,7 @@ class AccountSummaryViewController: UIViewController {
         tableView.register(UINib(nibName: "AccountSummaryCell", bundle: nil), forCellReuseIdentifier: AccountSummaryCell.identifier)
         
         tableView.rowHeight = AccountSummaryCell.height
-        tableView.tableFooterView = UIView()
+        tableView.backgroundColor = CustomColors.appColor
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
