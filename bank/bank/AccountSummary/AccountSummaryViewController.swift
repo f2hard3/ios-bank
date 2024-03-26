@@ -21,6 +21,11 @@ class AccountSummaryViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
+        tableView.register(UINib(nibName: "AccountSummaryCell", bundle: nil), forCellReuseIdentifier: AccountSummaryCell.identifier)
+        
+        tableView.rowHeight = AccountSummaryCell.height
+        tableView.tableFooterView = UIView()
+        
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(tableView)
@@ -35,7 +40,7 @@ class AccountSummaryViewController: UIViewController {
     
     private func setupTableHeaderView() {
         let header = AccountSummaryHeaderView(frame: .zero)
-        var size = header.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize) 
+        var size = header.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
         size.width = view.frame.width
         header.frame.size = size
         
@@ -50,7 +55,7 @@ extension AccountSummaryViewController: UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: AccountSummaryCell.identifier, for: indexPath) as! AccountSummaryCell
         
         return cell
     }

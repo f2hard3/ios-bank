@@ -25,6 +25,8 @@
 		CA0A81D52BB15E6600B31139 /* UIViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0A81D42BB15E6600B31139 /* UIViewControllerUtils.swift */; };
 		CA0A81D72BB2297B00B31139 /* AccountSummaryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0A81D62BB2297B00B31139 /* AccountSummaryHeaderView.swift */; };
 		CA0A81D92BB229B400B31139 /* AccountSummaryHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA0A81D82BB229B400B31139 /* AccountSummaryHeaderView.xib */; };
+		CA0A81DD2BB24A7200B31139 /* AccountSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0A81DC2BB24A7200B31139 /* AccountSummaryCell.swift */; };
+		CA0A81DF2BB24BCF00B31139 /* AccountSummaryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA0A81DE2BB24BCF00B31139 /* AccountSummaryCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		CA0A81D42BB15E6600B31139 /* UIViewControllerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerUtils.swift; sourceTree = "<group>"; };
 		CA0A81D62BB2297B00B31139 /* AccountSummaryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryHeaderView.swift; sourceTree = "<group>"; };
 		CA0A81D82BB229B400B31139 /* AccountSummaryHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountSummaryHeaderView.xib; sourceTree = "<group>"; };
+		CA0A81DC2BB24A7200B31139 /* AccountSummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryCell.swift; sourceTree = "<group>"; };
+		CA0A81DE2BB24BCF00B31139 /* AccountSummaryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountSummaryCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,9 +140,9 @@
 		CA0A81C92BB1595100B31139 /* AccountSummary */ = {
 			isa = PBXGroup;
 			children = (
+				CA0A81DA2BB24A3300B31139 /* Header */,
+				CA0A81DB2BB24A4700B31139 /* Cell */,
 				CA0A81CA2BB1597200B31139 /* AccountSummaryViewController.swift */,
-				CA0A81D62BB2297B00B31139 /* AccountSummaryHeaderView.swift */,
-				CA0A81D82BB229B400B31139 /* AccountSummaryHeaderView.xib */,
 			);
 			path = AccountSummary;
 			sourceTree = "<group>";
@@ -157,6 +161,24 @@
 				CA0A81D02BB159E600B31139 /* MoreViewController.swift */,
 			);
 			path = More;
+			sourceTree = "<group>";
+		};
+		CA0A81DA2BB24A3300B31139 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				CA0A81D62BB2297B00B31139 /* AccountSummaryHeaderView.swift */,
+				CA0A81D82BB229B400B31139 /* AccountSummaryHeaderView.xib */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		CA0A81DB2BB24A4700B31139 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CA0A81DC2BB24A7200B31139 /* AccountSummaryCell.swift */,
+				CA0A81DE2BB24BCF00B31139 /* AccountSummaryCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +243,7 @@
 				CA0A81B12BAE278200B31139 /* Assets.xcassets in Resources */,
 				CA0A81B42BAE278200B31139 /* Base in Resources */,
 				CA0A81AF2BAE278100B31139 /* Base in Resources */,
+				CA0A81DF2BB24BCF00B31139 /* AccountSummaryCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,6 +260,7 @@
 				CA0A81C02BB0C86000B31139 /* OnboardingContainerController.swift in Sources */,
 				CA0A81D12BB159E600B31139 /* MoreViewController.swift in Sources */,
 				CA0A81A82BAE278100B31139 /* AppDelegate.swift in Sources */,
+				CA0A81DD2BB24A7200B31139 /* AccountSummaryCell.swift in Sources */,
 				CA0A81CF2BB159CC00B31139 /* MoveMoneyViewController.swift in Sources */,
 				CA0A81D52BB15E6600B31139 /* UIViewControllerUtils.swift in Sources */,
 				CA0A81BD2BAE2A7500B31139 /* LoginView.swift in Sources */,
