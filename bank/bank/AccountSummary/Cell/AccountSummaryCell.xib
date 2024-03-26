@@ -72,6 +72,12 @@
                     <constraint firstItem="uiC-3q-MLR" firstAttribute="top" secondItem="GsH-qF-szU" secondAttribute="top" constant="16" id="sOt-qQ-2vM"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="accountNameLabel" destination="t9W-Za-loP" id="VhJ-jc-wLf"/>
+                <outlet property="accountTypeLabel" destination="uiC-3q-MLR" id="EU2-WD-ZPw"/>
+                <outlet property="balanceAmountLabel" destination="jsN-V5-UbD" id="Rbj-bH-nGF"/>
+                <outlet property="balanceLabel" destination="uC4-46-MeN" id="XOF-R8-cv6"/>
+            </connections>
             <point key="canvasLocation" x="-405.34351145038164" y="-481.69014084507046"/>
         </tableViewCell>
     </objects>
