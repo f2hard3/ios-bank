@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import bank
+@testable import Bank
 
 final class CurrencyFormatterTests: XCTestCase {
     var formatter: CurrencyFormatter!
