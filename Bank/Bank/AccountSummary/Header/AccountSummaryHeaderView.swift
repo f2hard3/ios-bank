@@ -27,7 +27,11 @@ class AccountSummaryHeaderView: UIView {
         let bundle = Bundle(for: AccountSummaryHeaderView.self)
         bundle.loadNibNamed("AccountSummaryHeaderView", owner: self)
         
+        let shakyBellView = ShakeyBellView()
+        shakyBellView.translatesAutoresizingMaskIntoConstraints = false
+        
         addSubview(contentView)
+        addSubview(shakyBellView)
         
         contentView.translatesAutoresizingMaskIntoConstraints = false
         contentView.backgroundColor = CustomColors.appColor
@@ -37,6 +41,9 @@ class AccountSummaryHeaderView: UIView {
             contentView.leadingAnchor.constraint(equalTo: leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: trailingAnchor),
             contentView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            
+            shakyBellView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            shakyBellView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
         
     }

@@ -130,6 +130,9 @@ extension LoginViewController {
         errorMessageLabel.isHidden = true
         view.endEditing(true)
         
+        loginView.usernameTextField.text = "Kevin"
+        loginView.passwordTextField.text = "Welcome"
+        
         login()
     }
     

@@ -33,6 +33,7 @@
 		CA1E63672BB2E04500EDB66E /* CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1E63662BB2E04500EDB66E /* CurrencyFormatter.swift */; };
 		CA1E63692BB36E5800EDB66E /* NSNotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1E63682BB36E5800EDB66E /* NSNotificationName.swift */; };
 		CA4BF4D92BB37780003483C0 /* UITextFieldWithSecureToggleUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4BF4D82BB37780003483C0 /* UITextFieldWithSecureToggleUtils.swift */; };
+		CA4BF4DE2BB3BD87003483C0 /* ShakyBellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4BF4DD2BB3BD87003483C0 /* ShakyBellView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		CA1E63662BB2E04500EDB66E /* CurrencyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatter.swift; sourceTree = "<group>"; };
 		CA1E63682BB36E5800EDB66E /* NSNotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSNotificationName.swift; sourceTree = "<group>"; };
 		CA4BF4D82BB37780003483C0 /* UITextFieldWithSecureToggleUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldWithSecureToggleUtils.swift; sourceTree = "<group>"; };
+		CA4BF4DD2BB3BD87003483C0 /* ShakyBellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakyBellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 		CA0A81A62BAE278100B31139 /* Bank */ = {
 			isa = PBXGroup;
 			children = (
+				CA4BF4DA2BB3BCCB003483C0 /* Components */,
 				CA0A81BB2BAE2A1000B31139 /* Login */,
 				CA0A81BE2BB0C83800B31139 /* Onboarding */,
 				CA0A81C92BB1595100B31139 /* AccountSummary */,
@@ -226,6 +229,14 @@
 			path = BankUnitTests;
 			sourceTree = "<group>";
 		};
+		CA4BF4DA2BB3BCCB003483C0 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				CA4BF4DD2BB3BD87003483C0 /* ShakyBellView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -334,6 +345,7 @@
 				CA0A81E32BB29D6F00B31139 /* DecimalUtils.swift in Sources */,
 				CA0A81AC2BAE278100B31139 /* LoginViewController.swift in Sources */,
 				CA0A81C52BB1425400B31139 /* LocalState.swift in Sources */,
+				CA4BF4DE2BB3BD87003483C0 /* ShakyBellView.swift in Sources */,
 				CA0A81C22BB0E26000B31139 /* OnboardingViewController.swift in Sources */,
 				CA0A81C02BB0C86000B31139 /* OnboardingContainerController.swift in Sources */,
 				CA0A81D12BB159E600B31139 /* MoreViewController.swift in Sources */,
