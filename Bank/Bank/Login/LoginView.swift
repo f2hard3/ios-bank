@@ -81,7 +81,9 @@ extension LoginView: UITextFieldDelegate {
         return true
     }
     
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {        
+        textField.resignFirstResponder()
+        
         return true
     }
     

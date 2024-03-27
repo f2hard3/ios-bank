@@ -128,9 +128,7 @@ extension LoginViewController {
 extension LoginViewController {
     @objc private func signInTapped(sender: UIButton) {
         errorMessageLabel.isHidden = true
-        
-        loginView.usernameTextField.text = "Kevin"
-        loginView.passwordTextField.text = "Welcome"
+        view.endEditing(true)
         
         login()
     }
@@ -143,6 +141,7 @@ extension LoginViewController {
         
         if userName.isEmpty || password.isEmpty {
             configureView(withMessage: "username / password cannot be blank")
+            shakeButton()
             return
         }
         
@@ -151,6 +150,7 @@ extension LoginViewController {
             didLogin()
         } else {
             configureView(withMessage: "Incorrect username / password")
+            shakeButton()
         }
     }
     
@@ -211,5 +211,16 @@ extension LoginViewController {
             self.view.layoutIfNeeded()
         }
         textAnimator.startAnimation(afterDelay: 0.25)
+    }
+    
+    private func shakeButton() {
+        let animation = CAKeyframeAnimation()
+        animation.keyPath = "position.x"
+        animation.values = [0, 10, -10, 10, 0]
+        animation.keyTimes = [0, 0.16, 0.5, 0.83, 1]
+        animation.duration = 0.4
+        animation.isAdditive = true
+        
+        signInButton.layer.add(animation, forKey: "shake")
     }
 }
