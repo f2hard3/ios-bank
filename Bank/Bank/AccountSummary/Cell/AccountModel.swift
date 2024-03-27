@@ -7,11 +7,20 @@
 
 import Foundation
 
-enum AccountType: String {
+enum AccountType: String, Codable  {
     case Banking
     case CreditCard
     case Investment
 }
+
+struct Account: Codable {
+    let id: String
+    let type: AccountType
+    let name: String
+    let amount: Decimal
+    let createdDateTime: Date
+}
+
 
 struct AccountModel {
     let accountType: AccountType
