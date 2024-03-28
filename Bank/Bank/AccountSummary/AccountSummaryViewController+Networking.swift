@@ -24,7 +24,6 @@ extension AccountSummaryViewController {
             switch result {
             case .success(let profile):
                 self.profile = profile
-                self.configureHeaderView(with: profile)
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -37,7 +36,6 @@ extension AccountSummaryViewController {
             switch result {
             case .success(let accounts):
                 self.accounts = accounts
-                self.configureTableCells(with: accounts)
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -46,7 +44,11 @@ extension AccountSummaryViewController {
         }
         
         group.notify(queue: .main) {
+            guard let profile = self.profile else { return }
+            self.configureHeaderView(with: profile)
+            self.configureTableCells(with: self.accounts)
             self.tableView.reloadData()
+            self.isLoaded = true
         }
     }
     
@@ -100,7 +102,7 @@ extension AccountSummaryViewController {
         headerView.configure(model: model)
     }
     
-    private func configureTableCells(with accounts: [Account]) {
+    func configureTableCells(with accounts: [Account]) {
         accountModels = accounts.map {
             AccountModel(accountType: $0.type, accountName: $0.name, balance: $0.amount)
         }

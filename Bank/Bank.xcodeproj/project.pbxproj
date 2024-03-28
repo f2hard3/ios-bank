@@ -40,6 +40,8 @@
 		CA4BF4E82BB4D75E003483C0 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4BF4E72BB4D75E003483C0 /* ProfileModel.swift */; };
 		CA4BF4EC2BB4DDB7003483C0 /* ProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4BF4EB2BB4DDB7003483C0 /* ProfileTests.swift */; };
 		CA4BF4EE2BB4E084003483C0 /* AccountTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4BF4ED2BB4E084003483C0 /* AccountTest.swift */; };
+		CA4BF4F02BB54C2D003483C0 /* SkeletonLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4BF4EF2BB54C2D003483C0 /* SkeletonLoadable.swift */; };
+		CA4BF4F22BB54D51003483C0 /* SkeletonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4BF4F12BB54D51003483C0 /* SkeletonCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +91,8 @@
 		CA4BF4E72BB4D75E003483C0 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		CA4BF4EB2BB4DDB7003483C0 /* ProfileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTests.swift; sourceTree = "<group>"; };
 		CA4BF4ED2BB4E084003483C0 /* AccountTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTest.swift; sourceTree = "<group>"; };
+		CA4BF4EF2BB54C2D003483C0 /* SkeletonLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonLoadable.swift; sourceTree = "<group>"; };
+		CA4BF4F12BB54D51003483C0 /* SkeletonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +237,8 @@
 				CA0A81DC2BB24A7200B31139 /* AccountSummaryCell.swift */,
 				CA0A81DE2BB24BCF00B31139 /* AccountSummaryCell.xib */,
 				CA0A81E02BB2950100B31139 /* AccountModel.swift */,
+				CA4BF4EF2BB54C2D003483C0 /* SkeletonLoadable.swift */,
+				CA4BF4F12BB54D51003483C0 /* SkeletonCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -379,6 +385,7 @@
 				CA0A81E32BB29D6F00B31139 /* Decimal+Utils.swift in Sources */,
 				CA0A81AC2BAE278100B31139 /* LoginViewController.swift in Sources */,
 				CA4BF4E42BB4C734003483C0 /* Date+Utils.swift in Sources */,
+				CA4BF4F22BB54D51003483C0 /* SkeletonCell.swift in Sources */,
 				CA4BF4E22BB4C473003483C0 /* AccountSummaryHeaderModel.swift in Sources */,
 				CA4BF4E82BB4D75E003483C0 /* ProfileModel.swift in Sources */,
 				CA0A81C52BB1425400B31139 /* LocalState.swift in Sources */,
@@ -391,6 +398,7 @@
 				CA0A81DD2BB24A7200B31139 /* AccountSummaryCell.swift in Sources */,
 				CA4BF4E62BB4C921003483C0 /* AccountSummaryViewController+Networking.swift in Sources */,
 				CA0A81CF2BB159CC00B31139 /* MoveMoneyViewController.swift in Sources */,
+				CA4BF4F02BB54C2D003483C0 /* SkeletonLoadable.swift in Sources */,
 				CA0A81D52BB15E6600B31139 /* UIViewController+Utils.swift in Sources */,
 				CA0A81BD2BAE2A7500B31139 /* LoginView.swift in Sources */,
 				CA0A81AA2BAE278100B31139 /* SceneDelegate.swift in Sources */,

@@ -22,12 +22,15 @@ class AccountSummaryViewController: UIViewController {
         return barButtonItem
     }()
     
+    var isLoaded = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupNavigationBar()
         setupTableView()
         setupRefreshControl()
+        setUpSkeletons()
         setupTableHeaderView()
         fetchDataAndLoadView()
     }
@@ -41,6 +44,7 @@ class AccountSummaryViewController: UIViewController {
         tableView.dataSource = self
         
         tableView.register(UINib(nibName: "AccountSummaryCell", bundle: nil), forCellReuseIdentifier: AccountSummaryCell.identifier)
+        tableView.register(SkeletonCell.self, forCellReuseIdentifier: SkeletonCell.identifier)
         
         tableView.rowHeight = AccountSummaryCell.height
         tableView.backgroundColor = CustomColors.appColor
@@ -63,6 +67,13 @@ class AccountSummaryViewController: UIViewController {
         tableView.refreshControl?.addTarget(self, action: #selector(refreshContent), for: .valueChanged)
     }
     
+    private func setUpSkeletons() {
+        let row = Account.makeSkeleton()
+        accounts = Array(repeating: row, count: 10)
+        
+        configureTableCells(with: accounts)
+    }
+    
     private func setupTableHeaderView() {
         var size = headerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
         size.width = view.frame.width
@@ -75,18 +86,24 @@ class AccountSummaryViewController: UIViewController {
 // MARK: - UITableView
 extension AccountSummaryViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return accounts.count
+        return accountModels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: AccountSummaryCell.identifier, for: indexPath) as? AccountSummaryCell, !accounts.isEmpty else { return UITableViewCell() }
-        cell.configure(with: accountModels[indexPath.row])
+        if isLoaded && !accountModels.isEmpty {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: AccountSummaryCell.identifier, for: indexPath) as? AccountSummaryCell else { return UITableViewCell() }
+            cell.configure(with: accountModels[indexPath.row])
+            
+            return cell
+        }
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SkeletonCell.identifier, for: indexPath) as? SkeletonCell else { return UITableViewCell() }
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        print("selected")
     }
 }
 
@@ -96,8 +113,17 @@ extension AccountSummaryViewController {
         NotificationCenter.default.post(name: .logout, object: nil)
     }
     
-    @objc private func refreshContent() {
+    @objc func refreshContent() {
+        reset()
+        setUpSkeletons()
+        tableView.reloadData()
         fetchDataAndLoadView()
         tableView.refreshControl?.endRefreshing()
+    }
+    
+    private func reset() {
+        profile = nil
+        accounts = []
+        isLoaded = false
     }
 }
