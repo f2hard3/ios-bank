@@ -27,6 +27,7 @@ class AccountSummaryViewController: UIViewController {
         
         setupNavigationBar()
         setupTableView()
+        setupRefreshControl()
         setupTableHeaderView()
         fetchDataAndLoadView()
     }
@@ -54,6 +55,12 @@ class AccountSummaryViewController: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+    }
+    
+    private func setupRefreshControl() {
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.tintColor = CustomColors.appColor
+        tableView.refreshControl?.addTarget(self, action: #selector(refreshContent), for: .valueChanged)
     }
     
     private func setupTableHeaderView() {
@@ -87,5 +94,10 @@ extension AccountSummaryViewController: UITableViewDataSource, UITableViewDelega
 extension AccountSummaryViewController {
     @objc private func logoutTapped(_ sender: UIBarButtonItem) {
         NotificationCenter.default.post(name: .logout, object: nil)
+    }
+    
+    @objc private func refreshContent() {
+        fetchDataAndLoadView()
+        tableView.refreshControl?.endRefreshing()
     }
 }

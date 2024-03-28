@@ -15,10 +15,12 @@ enum NetworkError: Error {
 
 extension AccountSummaryViewController {
     func fetchDataAndLoadView() {
+        let userId = String(Int.random(in: 1..<4))
+        
         let group = DispatchGroup()
         
         group.enter()
-        fetchProfile(forUserId: "1", completion: { result in
+        fetchProfile(forUserId: userId, completion: { result in
             switch result {
             case .success(let profile):
                 self.profile = profile
@@ -31,7 +33,7 @@ extension AccountSummaryViewController {
         })
         
         group.enter()
-        fetchAccounts(forUserId: "1") { result in
+        fetchAccounts(forUserId: userId) { result in
             switch result {
             case .success(let accounts):
                 self.accounts = accounts
