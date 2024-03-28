@@ -102,8 +102,7 @@ extension AccountSummaryViewController: UITableViewDataSource, UITableViewDelega
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("selected")
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {        
     }
 }
 
