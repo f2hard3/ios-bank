@@ -24,6 +24,15 @@ class AccountSummaryViewController: UIViewController {
     
     var isLoaded = false
     
+    var profileManager: ProfileManageable = ProfileManager()
+    
+    lazy var errorAlert: UIAlertController = {
+        let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        
+        return alert
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

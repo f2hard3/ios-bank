@@ -8,19 +8,23 @@
 import Foundation
 import UIKit
 
-enum NetworkError: Error {
-    case serverError
-    case decodingError
-}
-
 extension AccountSummaryViewController {
     func fetchDataAndLoadView() {
         let userId = String(Int.random(in: 1..<4))
         
         let group = DispatchGroup()
         
+        doFetchProfile(group: group, userId: userId)
+        doFetchAccounts(group: group, userId: userId)
+       
+        group.notify(queue: .main) {
+            self.reloadView()
+        }
+    }
+    
+    private func doFetchProfile(group: DispatchGroup, userId: String) {
         group.enter()
-        fetchProfile(forUserId: userId, completion: { result in
+        profileManager.fetchProfile(forUserId: userId, completion: { result in
             switch result {
             case .success(let profile):
                 self.profile = profile
@@ -30,7 +34,9 @@ extension AccountSummaryViewController {
             
             group.leave()
         })
-        
+    }
+    
+    private func doFetchAccounts(group: DispatchGroup, userId: String) {
         group.enter()
         fetchAccounts(forUserId: userId) { result in
             switch result {
@@ -42,17 +48,17 @@ extension AccountSummaryViewController {
             
             group.leave()
         }
-        
-        group.notify(queue: .main) {
-            guard let profile = self.profile else { return }
-            self.configureHeaderView(with: profile)
-            self.configureTableCells(with: self.accounts)
-            self.tableView.reloadData()
-            self.isLoaded = true
-        }
     }
     
-    func fetchAccounts(forUserId userId: String, completion: @escaping (Result<[Account],NetworkError>) -> Void) {
+    private func reloadView() {
+        guard let profile = self.profile else { return }
+        self.configureHeaderView(with: profile)
+        self.configureTableCells(with: self.accounts)
+        self.tableView.reloadData()
+        self.isLoaded = true
+    }
+    
+    private func fetchAccounts(forUserId userId: String, completion: @escaping (Result<[Account],NetworkError>) -> Void) {
         let url = URL(string: "https://fierce-retreat-36855.herokuapp.com/bankey/profile/\(userId)/accounts")!
         
         URLSession.shared.dataTask(with: url) { data, response, error in
@@ -73,29 +79,8 @@ extension AccountSummaryViewController {
                 }
             }
         }.resume()
-    }
-    
-    private func fetchProfile(forUserId userId: String, completion: @escaping (Result<Profile, NetworkError>) -> Void) {
-        guard let url = URL(string: "https://fierce-retreat-36855.herokuapp.com/bankey/profile/\(userId)") else { return }
-        
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            DispatchQueue.main.async {
-                guard let data = data, error == nil else {
-                    completion(.failure(.serverError))
-                    return
-                }
-                
-                do {
-                    let profile = try JSONDecoder().decode(Profile.self, from: data)
-                    
-                    completion(.success(profile))
-                } catch {
-                    completion(.failure(.decodingError))
-                }
-            }
-        }.resume()
-    }
-    
+    }    
+   
     private func configureHeaderView(with profile: Profile) {
         let model = AccountSummaryHeaderModel(welcomeMessage: "Good morning,", name: profile.firstName, date: Date())
         
@@ -109,13 +94,19 @@ extension AccountSummaryViewController {
     }
     
     private func showErrorAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        errorAlert.title = title
+        errorAlert.message = message
         
-        present(alert, animated: true)
+        present(errorAlert, animated: true)
+    }
+     
+    private func displayError(_ error: NetworkError) {
+        let (title, message) = createTitleAndMessage(for: error)
+        
+        showErrorAlert(title: title, message: message)
     }
     
-    private func displayError(_ error: NetworkError) {
+    private func createTitleAndMessage(for error: NetworkError) -> (String, String) {
         let title: String
         let message: String
         
@@ -128,6 +119,17 @@ extension AccountSummaryViewController {
             message = "We could not process your request. Please try again."
         }
         
-        self.showErrorAlert(title: title, message: message)
+        return (title, message)
+    }
+}
+
+// MARK: Unit testing
+extension AccountSummaryViewController {
+    func createTitleAndMessageForTesting(for error: NetworkError) -> (String, String) {
+        return createTitleAndMessage(for: error)
+    }
+    
+    func doFetchProfileForTesting(group: DispatchGroup, userId: String) {
+        return doFetchProfile(group: group, userId: userId)
     }
 }
